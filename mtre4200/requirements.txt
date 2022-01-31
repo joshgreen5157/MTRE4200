@@ -1,6 +1,0 @@
-numpy
-scipy
-pyyaml
-matplotlib
-rospkg
-empty
