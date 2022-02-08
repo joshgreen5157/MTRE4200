@@ -11,20 +11,16 @@ RUN apt-get update && apt-get install -q -y ros-melodic-hector-gazebo-plugins
 RUN apt-get install -y python-pip
 RUN pip install -r /opt/app/requirements.txt
 
-## Build catkin workspace
-##only required if you do not have catkin_workspace connected
-# ENV MY_WS=/my_ws
-# RUN source /opt/ros/melodic/setup.bash && \ 
-#     mkdir -p $MY_WS/src && \
-#     cd $MY_WS/src &&\
-#     catkin_init_workspace && \
-#     cd $MY_WS && \ 
-#     catkin_make && \ 
-#     source /$MY_WS/devel/setup.bash && \
-#     cd $MY_WS/src && \ 
-#     catkin_create_pkg my_pack rospy
-##COPY PythonCode/ /$MY_WS/src/my_packf
-
-##if you already have a docker volume with your catkin workspace
 ENV MY_WS=/my_ws
-RUN source /$MY_WS/devel/setup.bash
+RUN source /opt/ros/melodic/setup.bash && \ 
+    mkdir -p $MY_WS/src && \
+    cd $MY_WS/src &&\
+    catkin_init_workspace && \
+    cd $MY_WS && \ 
+    catkin_make && \ 
+    source /$MY_WS/devel/setup.bash && \
+    cd $MY_WS/src && \ 
+    catkin_create_pkg my_pack rospy
+    
+COPY PythonCode/ /$MY_WS/src/my_packf
+
