@@ -22,5 +22,5 @@ RUN source /opt/ros/melodic/setup.bash && \
     cd $MY_WS/src && \ 
     catkin_create_pkg my_pack rospy
     
-COPY PythonCode/ /$MY_WS/src/my_packf
+COPY PythonCode/ /$MY_WS/src/my_pack
 
