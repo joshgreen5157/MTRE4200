@@ -1,0 +1,2 @@
+my_pack
+-DCATKIN_DEVEL_PREFIX=/home/josh/Documents/MTRE4200/my_ws/devel -DCMAKE_INSTALL_PREFIX=/home/josh/Documents/MTRE4200/my_ws/install -G Unix Makefiles
